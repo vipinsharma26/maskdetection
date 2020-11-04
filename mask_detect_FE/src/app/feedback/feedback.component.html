@@ -1,0 +1,39 @@
+    <div class="container-fluid">
+    <div class="container">
+        <div class="title">
+        <h2 class="text-info" style="margin: 0">Feedback</h2>
+        </div>
+
+        <form>
+        <div class="form-group">
+            <input type="text" class="name form-control" placeholder="Name" />
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="name form-control" placeholder="Feedback" />
+        </div>
+
+        <div class="form-group">
+            <label class="checkbox">
+                For improvement we like to save your 
+            <input type="checkbox" (change)="changeEvent($event)"/>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label class="btn btn-primary btn-file">
+            Upload
+            <input type="file" [disabled]="!saveFile"/>
+            </label>
+        </div>
+        <!-- <button
+            class="btn-primary"
+            type="submit"
+            mat-raised-button
+            color="primary"
+        >
+            submit
+        </button> -->
+        </form>
+    </div>
+    </div>

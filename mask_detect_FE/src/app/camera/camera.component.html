@@ -1,0 +1,72 @@
+<div style="text-align: center">
+  <ngx-spinner
+    bdColor="rgba(41, 41, 41, 0.8)"
+    size="large"
+    color="#ffbb91"
+    type="line-scale"
+    [fullScreen]="false"
+  ></ngx-spinner>
+
+  <h2 *ngIf="stopCamera">Look at camera</h2>
+  <h2 class="text-dark" *ngIf="scaning">Please Wait While We Scan Your Face</h2>
+  <!-- <h3 class="text-danger" *ngIf="mask === 'No Mask Detected'">
+    No Mask Detected
+  </h3>
+  <h3 class="text-success" *ngIf="mask == 'Mask Detected'">Mask Detected</h3> -->
+  <webcam
+    [height]="250"
+    [width]="720"
+    [trigger]="triggerObservable"
+    (imageCapture)="handleImage($event)"
+    *ngIf="showWebcam"
+    (initError)="handleInitError($event)"
+  ></webcam>
+  <br />
+  <br />
+  <button
+    class="btn btn-primary my-2 my-sm-0"
+    *ngIf="stopCamera"
+    (click)="triggerSnapshot()"
+    autofocus
+    type="button"
+    data-toggle="tooltip"
+    data-placement="bottom"
+    title="Scan"
+  >
+    <span class="material-icons my-2 my-sm-0"
+      >&nbsp;&nbsp;image_search&nbsp;&nbsp;</span
+    >
+  </button>
+
+  <h3 class="text text-dark my-2 my-sm-0" *ngIf="scaning">
+    <p>Scanning....</p>
+  </h3>
+
+  <img [src]="imageURL" height="250" width="333" *ngIf="reScan" />
+  <br />
+  <br />
+
+  <button
+    class="btn btn-danger my-2 my-sm-0"
+    *ngIf="reScan"
+    (click)="reScanFun()"
+  >
+    Scan Again
+  </button>
+  <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button
+    class="btn btn-info my-2 my-sm-0"
+    *ngIf="reScan"
+    [routerLink]="['/feedback']" routerLinkActive="router-link-active" 
+  >
+    Feedback
+  </button> -->
+
+  <br />
+  <br />
+
+  <h4 *ngIf="errors.length > 0">Messages:</h4>
+  <ul *ngFor="let error of errors">
+    <li>{{ error | json }}</li>
+  </ul>
+</div>

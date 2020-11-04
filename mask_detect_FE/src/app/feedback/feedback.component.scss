@@ -1,0 +1,36 @@
+.container {
+  width: 30%;
+  padding: 1%;
+  align-items: flex-start;
+}
+
+.title{
+  text-align: center;
+  border-bottom-style: solid;
+  margin-bottom: 30px;
+}
+
+.name {
+  width: 70%;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 80px;
+  text-align: right;
+  outline: none;
+  display: block;
+}
